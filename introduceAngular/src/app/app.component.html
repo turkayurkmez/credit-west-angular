@@ -1,0 +1,8 @@
+<h3>{{ title }}</h3>
+<p>{{paragraph}}, {{ createdDate }} tarihinde yazıldı </p>
+<h3 [innerText]="title"></h3>
+<input type="checkbox" [checked]="isApproved" name="" id="">Onaylıyorum
+
+<ul>
+  <li *ngFor="let country of countries">{{country}}</li>
+</ul>
