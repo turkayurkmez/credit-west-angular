@@ -1,8 +1,28 @@
-<h3>{{ title }}</h3>
-<p>{{paragraph}}, {{ createdDate }} tarihinde yazıldı </p>
-<h3 [innerText]="title"></h3>
-<input type="checkbox" [checked]="isApproved" name="" id="">Onaylıyorum
+<app-main-menu></app-main-menu>
+<div class="container">
+  <h3>{{ title }}</h3>
+  <p>{{paragraph}}, {{ createdDate }} tarihinde yazıldı </p>
+  <h3 [innerText]="title"></h3>
+  <input type="checkbox" [(ngModel)]="isApproved" name="" id="">Onaylıyorum
+  <p [ngClass]="isApproved ? 'green':'red'">{{isApproved ? 'onaylandı' : 'onaylanmadı'}}</p>
 
-<ul>
-  <li *ngFor="let country of countries">{{country}}</li>
-</ul>
+  <ul>
+    <li *ngFor="let country of countries">{{country}}</li>
+  </ul>
+
+  <div>
+    <input type="text" name="" id="" class="form-control" #newTask>
+    <button class="btn btn-primary" (click)="addNewTask(newTask.value)">Görev Ekle</button>
+  </div>
+
+  <div>
+    <h3>Yapılmamış toplam iş: {{ getUndoneTasksCount() }}</h3>
+    <button (click)="filter()" class="btn btn-success">{{buttonText}}</button>
+    <div class="row" *ngFor="let item of todoItems">
+      <div class="col-12">
+        <input type="checkbox" [(ngModel)]="item.isDone" name="" id="" class="form-check-input">{{ item.task }} 
+        (<span [ngClass]="item.isDone ? 'green':'red'">{{ item.isDone ? 'Tamamlandı':'Tamamlanmadı' }}</span>)
+      </div>
+    </div>
+  </div>
+</div>
