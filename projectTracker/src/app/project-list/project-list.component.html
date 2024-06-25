@@ -1,17 +1,9 @@
 <p>Project-list works</p>
 <div class="container">
-    <div class="row">
+    <div class="row" *ngFor="let project of projects">
         <div class="col-12">
-            <app-project-detail></app-project-detail>
+            <app-project-detail [currentProject]="project"></app-project-detail>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <app-project-detail></app-project-detail>
-        </div>
-    </div> <div class="row">
-        <div class="col-12">
-            <app-project-detail></app-project-detail>
-        </div>
-    </div>
+ 
 </div>

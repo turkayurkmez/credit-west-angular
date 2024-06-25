@@ -1,2 +1,9 @@
-<p>project-detail works!</p>
-<app-task-list></app-task-list>
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">{{ project.name }}</h3>
+        <p class="card-text">{{project.description}}</p>
+        <p class="card-text">{{project.startDate}}</p>
+        <p class="card-text">{{project.completedPercentage}}</p>
+    </div>
+</div>
+<app-task-list [tasks]="project.tasks"></app-task-list>
