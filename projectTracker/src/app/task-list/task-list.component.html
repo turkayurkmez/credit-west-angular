@@ -1,6 +1,6 @@
 <ul class="list-group">
     <li class="list-group-item" *ngFor="let task of tasks">
-        <input type="checkbox" name="" id="" class="form-check-input">{{task.name | lowercase}} {{task.expectedDate | date:'dd/MM/yyyy' }}
+        <input type="checkbox" name="" [(ngModel)] = "task.isDone"  id="" class="form-check-input">{{task.name | lowercase}} {{task.expectedDate | date:'dd/MM/yyyy' }}
         {{task.isDone}}
     </li>
 
