@@ -8,4 +8,5 @@ import { Project } from '../models/project.model';
 })
 export class ProjectDetailComponent {
   @Input('currentProject') project: Project;
+  myNumber: number = 98;
 }

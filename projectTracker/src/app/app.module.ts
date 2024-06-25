@@ -8,6 +8,9 @@ import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { ReadPipe } from './pipes/read.pipe';
+import { SearchPipe } from './pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { TaskListComponent } from './task-list/task-list.component';
     CategoryMenuComponent,
     ProjectListComponent,
     ProjectDetailComponent,
-    TaskListComponent
+    TaskListComponent,
+    ReadPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

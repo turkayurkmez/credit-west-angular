@@ -9,4 +9,5 @@ import { projects } from '../models/mocks/projects.mock';
 })
 export class ProjectListComponent {
   projects: Project[] = projects;
+  word:string
 }

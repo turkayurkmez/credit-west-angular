@@ -1,9 +1,13 @@
 <div class="card">
     <div class="card-body">
-        <h3 class="card-title">{{ project.name }}</h3>
-        <p class="card-text">{{project.description}}</p>
-        <p class="card-text">{{project.startDate}}</p>
-        <p class="card-text">{{project.completedPercentage}}</p>
+        <h3 class="card-title">{{ project.name | titlecase }}</h3>
+        <p class="card-text">{{project.description | lowercase}}</p>
+        <p class="card-text">{{project.startDate | date : 'dd MMMM yyyy' }}</p>
+        <p class="card-text">{{project.completedPercentage | percent}}</p>
+        <app-task-list [tasks]="project.tasks"></app-task-list>
     </div>
+    
 </div>
-<app-task-list [tasks]="project.tasks"></app-task-list>
+
+<span>{{ myNumber | read}}</span>
+
