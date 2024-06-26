@@ -16,7 +16,12 @@ export class ProjectListComponent implements OnInit {
   ngOnInit(): void {
     //console.log(this.route.url.subscribe((x)=>console.log(x)));
     this.route.params.subscribe((arg) => {
-      console.log(arg["id"]);
+      console.log(arg['id']);
+      if (arg['id'] != undefined) {
+        let id: number = Number.parseInt(arg['id']);
+        // this.projects = projects;
+        this.projects = projects.filter((pr) => pr.categoryId == id);
+      }
     });
   }
 }
