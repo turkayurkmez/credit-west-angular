@@ -12,6 +12,8 @@ import { ReadPipe } from './pipes/read.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProjectDetailComponent,
     TaskListComponent,
     ReadPipe,
-    SearchPipe
+    SearchPipe,
+    AddProjectComponent,
+    AddCategoryComponent
   ],
   imports: [
     BrowserModule,

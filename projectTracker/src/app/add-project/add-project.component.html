@@ -1,0 +1,26 @@
+<form #newProject="ngForm" (ngSubmit)="add(newProject)">
+    <div>
+        <label for="textName">Proje Adı</label>
+        <input type="text" required minlength="3" #name="ngModel" [(ngModel)]="project.name" name="name" id="textName" class="form-control"
+            placeholder="Proje adını giriniz">
+        <span class="alert alert-danger form-control" *ngIf="name.getError('required') != undefined &&  name.dirty && name.invalid">Lütfen proje adını giriniz</span>
+        <span class="alert alert-danger form-control" *ngIf="name.getError('minlength') != undefined &&  name.dirty && name.invalid">Proje adı en az üç harf...</span>
+
+    </div>
+    <div>
+        <label for="textDesc">Açıklama</label>
+        <input type="text" #description="ngModel" [(ngModel)]="project.description" name="description" id="textDesc"
+            class="form-control" placeholder="Proje açıklaması....">
+    </div>
+    <div>
+        <label for="textStart">Başlangıç Tarihi</label>
+        <input type="datetime-local" #startDate="ngModel" [(ngModel)]="project.startDate" name="startDate"
+            id="textStart" class="form-control" placeholder="Proje adını giriniz">
+    </div>
+    <div>
+        <label for="chooseCetegory">Kategorisi</label>
+        <select id="chooseCetegory" #categoryId="ngModel" [(ngModel)]="project.categoryId" name="categoryId"
+            class="form-control"></select>
+    </div>
+    <button type="submit" class="btn btn-success">Proje Ekle</button>
+</form>

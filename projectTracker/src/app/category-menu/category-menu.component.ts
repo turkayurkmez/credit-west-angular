@@ -15,6 +15,7 @@ export class CategoryMenuComponent implements OnInit {
   constructor(private categoryService: CategoriesService) {}
 
   ngOnInit(): void {
+    // this.categoryService.url
     this.categoryService.getCategories().subscribe((data: Category[]) => {
       this.categories = data;
     });

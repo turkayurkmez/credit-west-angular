@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../models/project.model';
 import { projects } from '../models/mocks/projects.mock';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectsService } from '../services/projects.service';
 
 @Component({
   selector: 'app-project-list',
@@ -9,19 +10,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./project-list.component.css'],
 })
 export class ProjectListComponent implements OnInit {
-  projects: Project[] = projects;
+  projects: Project[];
   word: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectsService
+  ) {}
   ngOnInit(): void {
     //console.log(this.route.url.subscribe((x)=>console.log(x)));
+    //let id:number = 0;
     this.route.params.subscribe((arg) => {
+
+      let observableProjects = arg['id'] != undefined ?
+       this.projectService.getProjectByCategory(Number.parseInt(arg['id']))    : this.projectService.getProjects();
+     
+      observableProjects.subscribe((data)=>{
+        this.projects = data;
+      })                                              
       console.log(arg['id']);
-      if (arg['id'] != undefined) {
-        let id: number = Number.parseInt(arg['id']);
-        // this.projects = projects;
-        this.projects = projects.filter((pr) => pr.categoryId == id);
-      }
+     
     });
   }
 }
