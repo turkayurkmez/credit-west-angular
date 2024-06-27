@@ -89,7 +89,7 @@ namespace projectTracker.API.Services
 
         };
 
-        public int CreateProject(Project project)
+        public int? CreateProject(Project project)
         {
             projects.Add(project);
             project.Id = projects.Last().Id + 1;

@@ -34,7 +34,7 @@ namespace projectTracker.API.Controllers
             if (ModelState.IsValid)
             {
                 projectService.CreateProject(project);
-                return CreatedAtAction("http://testUrl.com", value: project);
+                return Created("http://testUrl.com", value: project);
             }
 
             return BadRequest();

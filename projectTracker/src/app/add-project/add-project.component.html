@@ -1,4 +1,4 @@
-<form #newProject="ngForm" (ngSubmit)="add(newProject)">
+<form #newProject="ngForm" (ngSubmit)="add(newProject)" >
     <div>
         <label for="textName">Proje Adı</label>
         <input type="text" required minlength="3" #name="ngModel" [(ngModel)]="project.name" name="name" id="textName" class="form-control"
@@ -9,8 +9,10 @@
     </div>
     <div>
         <label for="textDesc">Açıklama</label>
-        <input type="text" #description="ngModel" [(ngModel)]="project.description" name="description" id="textDesc"
-            class="form-control" placeholder="Proje açıklaması....">
+        <input type="text" #description="ngModel" [(ngModel)]="project.description"  name="description" id="textDesc"
+            class="form-control" placeholder="Proje açıklaması...." required>
+        <span class="alert alert-danger form-control" *ngIf="description.getError('required') != undefined &&  description.dirty && description.invalid">Proje açıklamsını boş geçmeyin</span>
+
     </div>
     <div>
         <label for="textStart">Başlangıç Tarihi</label>
@@ -19,8 +21,13 @@
     </div>
     <div>
         <label for="chooseCetegory">Kategorisi</label>
-        <select id="chooseCetegory" #categoryId="ngModel" [(ngModel)]="project.categoryId" name="categoryId"
-            class="form-control"></select>
+        <select required id="chooseCetegory" #categoryId="ngModel" [(ngModel)]="project.categoryId" name="categoryId"
+            class="form-control">          
+            <option value="" disabled selected>Select your option</option>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+        </select>
+        <span class="alert alert-danger form-control" *ngIf="categoryId.getError('required') != undefined &&  categoryId.untouched">Bu proje hangi kategoriye ait?</span>
+
     </div>
     <button type="submit" class="btn btn-success">Proje Ekle</button>
 </form>

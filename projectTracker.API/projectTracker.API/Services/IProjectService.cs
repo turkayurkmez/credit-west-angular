@@ -6,7 +6,7 @@ namespace projectTracker.API.Services
     {
         public IEnumerable<Project> GetProjects();
         public IEnumerable<Project> GetProjectsByCategory(int categoryId);
-        public int CreateProject(Project project);
+        public int? CreateProject(Project project);
 
 
     }
