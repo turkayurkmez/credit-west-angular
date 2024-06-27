@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     ReadPipe,
     SearchPipe,
     AddProjectComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
