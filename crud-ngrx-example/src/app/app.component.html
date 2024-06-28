@@ -1,0 +1,33 @@
+<div *ngIf="{books: books$ | async,
+             isLoading: isLoading$ | async             
+            } as data">
+
+  <div>
+    <input type="text" placeholder="Kitap..." #bookName>
+    <button (click)="createNewBook(bookName.value)">Yeni Kitap Ekle</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of data.books">
+        <td>{{book.id}}</td>
+        <td>{{book.name}}</td>
+        <td>       
+        <button (click)="deleteBook(book)">Delete</button>
+        <button (click)="updateExistingBook(book)">Update</button>
+
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
