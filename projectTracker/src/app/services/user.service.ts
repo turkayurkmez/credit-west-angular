@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UrlSegment } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
